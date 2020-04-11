@@ -1,0 +1,38 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <Creature.h>
+#include <Ant.h>
+#include <Beetle.h>
+
+using namespace std;
+
+int main()
+{
+    string inputFile;
+    cin>>inputFile;
+    ifstream infile(inputFile);
+
+    char typeCreature = ' ';
+    Creature* grid[10][10];
+
+    cout << "Hello world!" << endl;
+    for(int i =0; i<10; i++)
+    {
+        for(int j = 0; j <10; j++)
+        {
+            cin>>typeCreature;
+            if(typeCreature == 'a')
+                grid[i][j] = new Ant;
+            else if (typeCreature == 'B')
+                grid[i][j] = new Beetle;
+            else
+            {
+                //not needed really so delete later
+                cout<<"NOT A OR B";
+            }
+        }
+    }
+    cout << "Hello world!" << endl;
+    return 0;
+}

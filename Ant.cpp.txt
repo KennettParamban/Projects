@@ -1,0 +1,65 @@
+#include "Ant.h"
+#include "Creature.h"
+#include "Beetle.h"
+
+Ant::Ant()
+{
+    //ctor
+
+}
+void Ant:: mover(Creature *grid[10][10], int r, int c)
+{
+    if(dynamic_cast<Beetle*>(grid[r-1][c]))//if north is beetle
+        {
+        if(grid[r+1][c]== nullptr)//if space south is open
+            {
+                grid[r+1][c] = grid[r][c];
+                grid[r][c] == nullptr;//move ant south
+            }
+        }
+    else if(dynamic_cast<Beetle*>(grid[r][c+1]))//if space east is open
+        {
+            if(grid[r][c-1]== nullptr)//if space south is open
+            {
+                grid[r][c-1] = grid[r][c];
+                grid[r][c] =nullptr;//move ant south
+            }
+        }
+    else if(dynamic_cast<Beetle*>(grid[r-1][c]))//if space east is open
+        {
+            if(grid[r+1][c]== nullptr)//if space south is open
+            {
+                grid[r+1][c] = grid[r][c];
+                grid[r][c] =nullptr;//move ant south
+            }
+        }
+    else if(dynamic_cast<Beetle*>(grid[r][c-1]))//if space east is open
+        {
+            if(grid[r][c+1]== nullptr)//if space south is open
+            {
+                grid[r][c+1] = grid[r][c];
+                grid[r][c] =nullptr;//move ant south
+            }
+        }
+
+}
+void Ant:: breed(Creature *grid[10][10], int r, int c)
+{
+    if(getTurnsSurvived()==3)
+    {
+        //check if NESW is open so as to add an ant
+        if(grid[r-1][c]== nullptr)//if space south is open
+            {
+                grid[r-1][c] = new Ant;
+
+            }
+        setTurnsSurvived(0);
+    }
+    else
+        setTurnsSurvived(getTurnsSurvived()+1);
+
+}
+Ant::~Ant()
+{
+    //dtor
+}

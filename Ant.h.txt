@@ -1,0 +1,20 @@
+#ifndef ANT_H
+#define ANT_H
+
+#include <Creature.h>
+
+
+class Ant : public Creature
+{
+    public:
+        Ant();
+        virtual ~Ant();
+        //char getType(){return 'a';}
+        void mover(Creature *grid[10][10], int r, int c);
+        void breed(Creature *grid[10][10], int r, int c);
+    protected:
+
+    private:
+};
+
+#endif // ANT_H

@@ -1,0 +1,19 @@
+#include "Beetle.h"
+
+Beetle::Beetle()
+{
+    //ctor
+    int turnsSurvived=0;
+}
+void Beetle::mover(Creature *grid[10][10], int r, int c)
+{
+
+}
+void Beetle::breed(Creature *grid[10][10], int r, int c)
+{
+
+}
+Beetle::~Beetle()
+{
+    //dtor
+}

@@ -1,0 +1,21 @@
+#ifndef BEETLE_H
+#define BEETLE_H
+
+#include <Creature.h>
+
+
+class Beetle : public Creature
+{
+    public:
+        Beetle();
+        virtual ~Beetle();
+        //char getType(){return 'b';}
+        void mover(Creature *grid[10][10], int r, int c);
+        void breed(Creature *grid[10][10], int r, int c);
+        void starve();
+    protected:
+
+    private:
+};
+
+#endif // BEETLE_H
